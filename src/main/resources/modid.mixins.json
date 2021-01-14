@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.example.mixin",
+  "package": "com.github.remainingtoast.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
   ],
   "client": [
-    "com.github.remainingtoast.mixin.ExampleMixin"
+    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
