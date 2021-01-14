@@ -6,7 +6,7 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "com.github.remainingtoast.mixin.ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
