@@ -1,7 +1,8 @@
 {
   "item.breadmod.bread_helmet": "Bread Helmet",
-  "item.breadmod.bread_chest": "Bread Chestplate",
-  "item.breadmod.bread_legs": "Bread Legs",
+  "item.breadmod.bread_chestplate": "Bread Chestplate",
+  "item.breadmod.bread_leggings": "Bread Legs",
   "item.breadmod.bread_boots": "Bread Boots",
+  "item.breadmod.toast": "Toast",
   "itemGroup.bread": "Bread Mod"
 }

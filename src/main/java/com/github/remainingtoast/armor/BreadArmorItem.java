@@ -48,11 +48,10 @@ public class BreadArmorItem extends ArmorItem {
 
             // 50% chance
             if (world.random.nextBoolean()) {
-                // Strength II, Nausea II, Slowness I
+                // Strength II, Nausea II
                 // Basically you're drunk
-                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 200, 1));
-                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 200, 1));
-                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 300));
+                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 500, 1));
+                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 350, 1));
             }
         }
     }
