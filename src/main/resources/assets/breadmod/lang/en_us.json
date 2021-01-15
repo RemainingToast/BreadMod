@@ -3,6 +3,8 @@
   "item.breadmod.bread_chestplate": "Bread Chestplate",
   "item.breadmod.bread_leggings": "Bread Legs",
   "item.breadmod.bread_boots": "Bread Boots",
+  "item.breadmod.bread_pickaxe": "Bread Pickaxe",
+  "block.breadmod.bread_block": "Bread Block",
   "item.breadmod.toast": "Toast",
   "itemGroup.bread": "Bread Mod"
 }
