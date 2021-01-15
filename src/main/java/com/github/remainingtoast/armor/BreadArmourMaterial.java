@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public enum BreadArmourMaterial implements ArmorMaterial {
 
-    BREAD("bread", 20, new int[]{ 2, 4, 5, 2},10, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 1.0F, 0.5F,() -> {
+    BREAD("bread", 20, new int[]{ 2, 3, 4, 2},10, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 1.0F, 0.5F,() -> {
         return Ingredient.ofItems(Items.BREAD);
     });
 
