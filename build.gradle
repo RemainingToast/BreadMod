@@ -1,10 +1,9 @@
 plugins {
-	id 'fabric-loom' version '0.5-SNAPSHOT'
+	id 'fabric-loom' version '1.2-SNAPSHOT'
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
@@ -61,22 +60,22 @@ jar {
 }
 
 // configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			// add all the jars that should be included when publishing to maven
-			artifact(remapJar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				builtBy remapSourcesJar
-			}
-		}
-	}
-
-	// Select the repositories you want to publish to
-	// To publish to maven local, no extra repositories are necessary. Just use the task `publishToMavenLocal`.
-	repositories {
-		// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	}
-}
+//publishing {
+//	publications {
+//		mavenJava(MavenPublication) {
+//			// add all the jars that should be included when publishing to maven
+//			artifact(remapJar) {
+//				builtBy remapJar
+//			}
+//			artifact(sourcesJar) {
+//				builtBy remapSourcesJar
+//			}
+//		}
+//	}
+//
+//	// Select the repositories you want to publish to
+//	// To publish to maven local, no extra repositories are necessary. Just use the task `publishToMavenLocal`.
+//	repositories {
+//		// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+//	}
+//}

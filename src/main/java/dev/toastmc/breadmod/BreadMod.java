@@ -1,16 +1,15 @@
-package com.github.remainingtoast;
+package dev.toastmc.breadmod;
 
-import com.github.remainingtoast.armor.BreadArmorItem;
-import com.github.remainingtoast.armor.BreadArmourMaterial;
-import com.github.remainingtoast.block.BreadBlock;
-import com.github.remainingtoast.item.BreadPickaxeItem;
-import com.github.remainingtoast.item.BreadToolMaterials;
+import dev.toastmc.breadmod.armor.BreadArmorItem;
+import dev.toastmc.breadmod.armor.BreadArmourMaterial;
+import dev.toastmc.breadmod.block.BreadBlock;
+import dev.toastmc.breadmod.item.BreadPickaxeItem;
+import dev.toastmc.breadmod.item.BreadToolMaterials;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -20,7 +19,7 @@ public class BreadMod implements ModInitializer {
 
 	public static String modVersion = FabricLoader.getInstance().getModContainer("breadmod").get().getMetadata().getVersion().toString();
 
-	private static final ItemGroup BREAD_GROUP = new ItemGroup(4, "bread") {
+	private static final ItemGroup BREAD_GROUP = new ItemGroup(8, "bread") {
 		@Override
 		public ItemStack createIcon() {
 			return new ItemStack(Items.BREAD);
@@ -32,7 +31,7 @@ public class BreadMod implements ModInitializer {
 	public static final Item BREAD_LEGS = new BreadArmorItem(BreadArmourMaterial.BREAD, EquipmentSlot.LEGS, new Item.Settings().group(BREAD_GROUP));
 	public static final Item BREAD_BOOTS = new BreadArmorItem(BreadArmourMaterial.BREAD, EquipmentSlot.FEET, new Item.Settings().group(BREAD_GROUP));
 
-	public static final Block BREAD_BLOCK = new BreadBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC));
+	public static final Block BREAD_BLOCK = new BreadBlock(FabricBlockSettings.copyOf(Blocks.HAY_BLOCK));
 	public static final Item BREAD_BLOCK_ITEM = new BlockItem(BREAD_BLOCK, new Item.Settings().group(BREAD_GROUP));
 
 	public static final Item BREAD_PICKAXE = new BreadPickaxeItem(BreadToolMaterials.BREAD, 2, -2.8F, new Item.Settings().group(BREAD_GROUP));

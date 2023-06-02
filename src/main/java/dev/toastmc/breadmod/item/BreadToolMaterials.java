@@ -1,24 +1,21 @@
-package com.github.remainingtoast.item;
+package dev.toastmc.breadmod.item;
 
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
 
 public enum BreadToolMaterials implements ToolMaterial {
 
-    BREAD(2, 456, 6.5F, 3.0F, 22, () -> {
-        return Ingredient.ofItems(Items.BREAD);
-    });
+    BREAD(2, 456, 6.5F, 3.0F, 22, () -> Ingredient.ofItems(Items.BREAD));
 
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;
     private final float attackDamage;
     private final int enchantability;
-    private final Lazy<Ingredient> repairIngredient;
+    private final Supplier<Ingredient> repairIngredient;
 
     BreadToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
         this.miningLevel = miningLevel;
@@ -26,7 +23,7 @@ public enum BreadToolMaterials implements ToolMaterial {
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairIngredient = new Lazy(repairIngredient);
+        this.repairIngredient = repairIngredient;
     }
 
     public int getDurability() {
@@ -50,6 +47,6 @@ public enum BreadToolMaterials implements ToolMaterial {
     }
 
     public Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredient.get();
+        return this.repairIngredient.get();
     }
 }

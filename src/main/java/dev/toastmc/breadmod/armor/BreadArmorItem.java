@@ -1,4 +1,4 @@
-package com.github.remainingtoast.armor;
+package dev.toastmc.breadmod.armor;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -7,6 +7,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -14,14 +15,14 @@ import net.minecraft.world.World;
 
 public class BreadArmorItem extends ArmorItem {
 
-    public BreadArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
+    public BreadArmorItem(ArmorMaterial material, EquipmentSlot slot, Item.Settings settings) {
         super(material, slot, settings);
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         // Only server thread. Only living entities. Exclude creative, spectator or peaceful players
-        if (world.isClient() || !(entity instanceof LivingEntity) || !EntityPredicates.EXCEPT_CREATIVE_SPECTATOR_OR_PEACEFUL.test(entity)) {
+        if (world.isClient() || !(entity instanceof LivingEntity) || !EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.test(entity)) {
             return;
         }
 
@@ -63,9 +64,13 @@ public class BreadArmorItem extends ArmorItem {
             chance *= 10; // 10 times more likely in water
         }
 
-        if (entity.world.getDimension().isUltrawarm()) {
-            chance /= 2; // Intense temperature slows down yeast
+        if (entity.isOnFire()) {
+            chance /= 4; // Intense temperature slows down yeast
         }
+
+//        if (entity.getWorld().getDimensionEntry().value().ultrawarm()) {
+//            chance /= 2; // Intense temperature slows down yeast
+//        }
 
         return chance;
     }

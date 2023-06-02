@@ -18,17 +18,17 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.remainingtoast.BreadMod"
+      "dev.toastmc.breadmod.BreadMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "breadmod.mixins.json"
   ],
 
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": "1.16.x"
+    "minecraft": "1.19.2"
   },
   "suggests": {
     "another-mod": "*"
